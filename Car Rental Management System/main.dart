@@ -32,7 +32,11 @@ void main() {
 
 //Cars
   Car car1 = Economycar(
-      carId: "1", year: "2011", pricePerDay: 1000, availabilty: true, latePenalityPerDay:1100);
+      carId: "1",
+      year: "2011",
+      pricePerDay: 1000,
+      availabilty: true,
+      latePenalityPerDay: 1100);
 
   Car car2 = Electriccar(
       carId: "2",
@@ -40,7 +44,7 @@ void main() {
       pricePerDay: 2000,
       availabilty: true,
       chargingPrice: 20,
-      latePenalityPerDay:2200);
+      latePenalityPerDay: 2200);
 
   Car car3 = Sportscar(
       carId: "3",
@@ -48,7 +52,7 @@ void main() {
       pricePerDay: 3000,
       availabilty: true,
       luxuryFees: 1000,
-      latePenalityPerDay:3300);
+      latePenalityPerDay: 3300);
 
 //Register Customers
   carRentalSystem.registerCustomer(customer1);
@@ -115,6 +119,14 @@ void main() {
 //return car1 with no additional fees
   carRentalSystem.returnCar(bookingId: "1", rentalDuration: Duration(days: 3));
   carRentalSystem.displayAvailableCars(); //car1 car2 car3
+
+//Book car2 with invalid Start and End dateTime
+  carRentalSystem.createBooking(
+      bookingId: "2",
+      customer: customer2,
+      car: car2,
+      startDate: DateTime(2025, 2, 13),
+      endDate: DateTime(2025, 2, 10));
 
 //Book car2
   carRentalSystem.createBooking(

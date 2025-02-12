@@ -34,7 +34,11 @@ class Carrentalsystem {
       required DateTime endDate}) {
     if (_bookingValidations(car: car, customerId: customer.customerId)) {
       if (bookings.containsKey(bookingId)) {
-        print("This Booking Id already Exits");
+        print("This Booking Id already Exits\n");
+        return;
+      }
+      if (startDate.isAfter(endDate)) {
+        print("Invalid start and end time\n");
         return;
       }
       Booking book = Booking(
@@ -46,6 +50,10 @@ class Carrentalsystem {
       customer.addBooking(book);
       bookings[bookingId] = book;
       car.availability = false;
+
+      print(
+          "Booking Completed Successfully, We want to inform you that if you return the car before the end date, the total Price will be calculated from start date to the end date (THIS IS OUR POLICY)");
+      print("Have a nice Ride :)\n");
     }
   }
 
@@ -77,15 +85,16 @@ class Carrentalsystem {
 
   void displayAvailableCars() {
     if (cars.isEmpty) {
-      print("No Available Cars");
+      print("\nNo Available Cars\n");
       return;
     }
-    print("Available Cars:");
+    print("\nAvailable Cars:");
     for (Car car in cars.values) {
       if (_checkCarAvailability(car)) {
         car.displayCarDetails();
       }
     }
+    print('\n');
   }
 
   Future<void> generateReport() async {
