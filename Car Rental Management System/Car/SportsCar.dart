@@ -7,12 +7,14 @@ class Sportscar extends Car {
       required String year,
       required double pricePerDay,
       required bool availabilty,
-      required double luxuryFees})
+      required double luxuryFees,
+      required double latePenalityPerDay})
       : super(
             carId: carId,
             year: year,
             pricePerDay: pricePerDay,
-            availabilty: availabilty) {
+            availabilty: availabilty,
+            latePenalityPerDay:latePenalityPerDay) {
     this.luxuryFees = luxuryFees;
   }
 

@@ -7,12 +7,14 @@ class Electriccar extends Car {
       required String year,
       required double pricePerDay,
       required bool availabilty,
-      required double chargingPrice})
+      required double chargingPrice,
+      required double latePenalityPerDay})
       : super(
             carId: carId,
             year: year,
             pricePerDay: pricePerDay,
-            availabilty: availabilty) {
+            availabilty: availabilty,
+            latePenalityPerDay:latePenalityPerDay) {
     this.chargingPrice = chargingPrice;
   }
 

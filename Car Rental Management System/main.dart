@@ -32,21 +32,23 @@ void main() {
 
 //Cars
   Car car1 = Economycar(
-      carId: "1", year: "2011", pricePerDay: 1000, availabilty: true);
+      carId: "1", year: "2011", pricePerDay: 1000, availabilty: true, latePenalityPerDay:1100);
 
   Car car2 = Electriccar(
       carId: "2",
       year: "2018",
       pricePerDay: 2000,
       availabilty: true,
-      chargingPrice: 20);
+      chargingPrice: 20,
+      latePenalityPerDay:2200);
 
   Car car3 = Sportscar(
       carId: "3",
       year: "2025",
       pricePerDay: 3000,
       availabilty: true,
-      luxuryFees: 1000);
+      luxuryFees: 1000,
+      latePenalityPerDay:3300);
 
 //Register Customers
   carRentalSystem.registerCustomer(customer1);

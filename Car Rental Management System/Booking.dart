@@ -33,8 +33,9 @@ class Booking {
 
   void calculateTotalCost(double usedDistance) {
     calculateLateReturn();
+    int numberOfDays = endDate.difference(startDate).inDays;
     totalCost =
-        car.calculateCost(rentalDuration.inDays, usedDistance: usedDistance);
+        car.calculateCost(numberOfDays, usedDistance: usedDistance) + lateReturnPenality;
     if (car.getCarType() == "Electric Car") {
       additionalFees = car.getAdditionalFees() * usedDistance;
     }
@@ -45,7 +46,7 @@ class Booking {
     int rentalDurationDays = rentalDuration.inDays;
     if (rentalDurationDays > numberOfDays) {
       int numberOfExtraDays = rentalDurationDays - numberOfDays;
-      lateReturnPenality = car.calculateCost(numberOfExtraDays);
+      lateReturnPenality = car.calculateLatePenalityCost(numberOfExtraDays);
     }
   }
 
